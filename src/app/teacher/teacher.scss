@@ -1,0 +1,63 @@
+.teacher-dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: #f6f8fb;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header .app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #124f7d;
+}
+
+.dashboard-header .welcome-text {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  color: #42566a;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.3rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #d3dde7;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.dashboard-card .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #244054;
+}
+
+@media (min-width: 640px) {
+  .teacher-dashboard {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .dashboard-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+

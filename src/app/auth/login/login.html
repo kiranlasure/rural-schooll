@@ -1,0 +1,40 @@
+<div class="login-page">
+  <div class="login-card">
+    <header class="login-header">
+      <h1 class="app-title">Rural School Portal</h1>
+      <p class="app-subtitle">
+        Digital access for teachers, students, and parents
+      </p>
+    </header>
+
+    <form class="login-form" (submit)="onSubmit($event)">
+      <label class="form-field">
+        <span class="field-label">Username or Mobile Number</span>
+        <input
+          type="text"
+          class="field-input"
+          autocomplete="username"
+          placeholder="Enter username or mobile number"
+        />
+      </label>
+
+      <label class="form-field">
+        <span class="field-label">Password</span>
+        <input
+          type="password"
+          class="field-input"
+          autocomplete="current-password"
+          placeholder="Enter password"
+        />
+      </label>
+
+      <button type="submit" class="btn-primary">
+        Login
+      </button>
+
+      <button type="button" class="link-button" aria-label="Forgot Password (not implemented)">
+        Forgot Password?
+      </button>
+    </form>
+  </div>
+</div>

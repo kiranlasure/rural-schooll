@@ -1,0 +1,58 @@
+<div class="attendance-report-page">
+  <header class="page-header">
+    <h1 class="page-title">Attendance Report</h1>
+  </header>
+
+  <section class="filters">
+    <div class="filter-row">
+      <label class="filter-field">
+        <span class="field-label">Class</span>
+        <select class="field-input">
+          <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+        </select>
+      </label>
+
+      <label class="filter-field">
+        <span class="field-label">Section</span>
+        <select class="field-input">
+          <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="filter-row">
+      <label class="filter-field">
+        <span class="field-label">Month</span>
+        <select class="field-input">
+          <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="report-table">
+    <div class="table-header">
+      <span class="col-name">Student Name</span>
+      <span class="col-small">Total</span>
+      <span class="col-small">Present</span>
+      <span class="col-small">Absent</span>
+      <span class="col-small">%</span>
+    </div>
+
+    <div class="table-row" *ngFor="let row of rows">
+      <span class="col-name">{{ row.studentName }}</span>
+      <span class="col-small">{{ row.totalDays }}</span>
+      <span class="col-small">{{ row.presentDays }}</span>
+      <span class="col-small">{{ row.absentDays }}</span>
+      <span class="col-small">{{ row.percentage }}</span>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button type="button" class="btn-download" (click)="onDownload()">
+      Download Report (PDF)
+    </button>
+  </footer>
+</div>
+
+

@@ -1,0 +1,70 @@
+<div class="attendance-page">
+  <header class="attendance-header">
+    <h1 class="page-title">Mark Attendance</h1>
+  </header>
+
+  <section class="filter-section">
+    <div class="filter-row">
+      <label class="filter-field">
+        <span class="field-label">Date</span>
+        <input
+          type="date"
+          class="field-input"
+          [value]="today"
+        />
+      </label>
+    </div>
+
+    <div class="filter-row two-columns">
+      <label class="filter-field">
+        <span class="field-label">Class</span>
+        <select class="field-input">
+          <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+        </select>
+      </label>
+
+      <label class="filter-field">
+        <span class="field-label">Section</span>
+        <select class="field-input">
+          <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="students-section">
+    <div class="students-header">
+      <span class="col-roll">Roll No</span>
+      <span class="col-name">Student Name</span>
+      <span class="col-attendance">Present</span>
+    </div>
+
+    <div
+      class="student-row"
+      *ngFor="let student of students"
+    >
+      <span class="col-roll">{{ student.rollNo }}</span>
+      <span class="col-name">{{ student.name }}</span>
+      <button
+        type="button"
+        class="attendance-toggle"
+        [class.absent]="!student.present"
+        (click)="toggleAttendance(student)"
+      >
+        {{ student.present ? 'Present' : 'Absent' }}
+      </button>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button
+      type="button"
+      class="btn-save"
+      (click)="onSave()"
+    >
+      Save Attendance
+    </button>
+  </footer>
+</div>
+
+
