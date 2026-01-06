@@ -1,0 +1,65 @@
+<div class="teacher-layout">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom fixed-top">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h5">Rural School Portal</span>
+      <div class="d-flex ms-auto">
+        <span class="navbar-text small text-muted">Teacher</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="teacher-layout-body">
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <aside class="col-12 col-md-3 col-lg-2 sidebar bg-white border-end">
+          <nav class="nav flex-column nav-pills py-3">
+            <a
+              class="nav-link"
+              routerLink="/teacher"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Dashboard
+            </a>
+            <a
+              class="nav-link"
+              routerLink="/teacher/attendance"
+              routerLinkActive="active"
+            >
+              Mark Attendance
+            </a>
+            <a
+              class="nav-link"
+              routerLink="/teacher/attendance-report"
+              routerLinkActive="active"
+            >
+              Attendance Report
+            </a>
+            <a
+              class="nav-link"
+              routerLink="/teacher/results"
+              routerLinkActive="active"
+            >
+              Upload Results
+            </a>
+            <a
+              class="nav-link"
+              routerLink="/teacher/notices"
+              routerLinkActive="active"
+            >
+              Events &amp; Notices
+            </a>
+          </nav>
+        </aside>
+
+        <main class="col-12 col-md-9 col-lg-10 main-content">
+          <div class="content-inner">
+            <router-outlet></router-outlet>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+
+

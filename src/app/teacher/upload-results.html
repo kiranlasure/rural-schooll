@@ -1,0 +1,80 @@
+<div class="upload-results-page">
+  <div class="container py-3">
+    <header class="page-header mb-3">
+      <h1 class="page-title h4 mb-0">Upload Results</h1>
+    </header>
+
+    <section class="filters mb-3">
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <label class="form-label field-label d-block mb-1">Class</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <label class="form-label field-label d-block mb-1">Section</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <label class="form-label field-label d-block mb-1">Subject</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let sub of subjects" [value]="sub">{{ sub }}</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <label class="form-label field-label d-block mb-1">Exam Type</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let exam of examTypes" [value]="exam">{{ exam }}</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="marks-table mb-3">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped table-bordered mb-0 align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" style="width: 15%;">Roll No</th>
+              <th scope="col" style="width: 40%;">Student Name</th>
+              <th scope="col" style="width: 45%;">Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.rollNo }}</td>
+              <td>{{ student.name }}</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  [(ngModel)]="student.marks"
+                  placeholder="Enter marks"
+                  min="0"
+                  max="100"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="actions">
+      <button
+        type="button"
+        class="btn btn-primary w-100"
+        (click)="onSave()"
+      >
+        Save Results
+      </button>
+    </footer>
+  </div>
+</div>
+

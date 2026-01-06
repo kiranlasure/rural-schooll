@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -8,14 +7,5 @@ import { Router } from '@angular/router';
   styleUrl: './teacher.scss',
 })
 export class Teacher {
-  private readonly router = inject(Router);
-
-  navigateToMarkAttendance(): void {
-    this.router.navigate(['/teacher/attendance']);
-  }
-
-  navigateToAttendanceReport(): void {
-    this.router.navigate(['/teacher/attendance-report']);
-  }
 }
 

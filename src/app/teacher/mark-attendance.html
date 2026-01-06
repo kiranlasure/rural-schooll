@@ -1,70 +1,84 @@
 <div class="attendance-page">
-  <header class="attendance-header">
-    <h1 class="page-title">Mark Attendance</h1>
-  </header>
+  <div class="container-fluid">
+    <header class="attendance-header mb-3">
+      <h1 class="page-title h4 mb-0">Mark Attendance</h1>
+    </header>
 
-  <section class="filter-section">
-    <div class="filter-row">
-      <label class="filter-field">
-        <span class="field-label">Date</span>
-        <input
-          type="date"
-          class="field-input"
-          [value]="today"
-        />
-      </label>
-    </div>
+    <section class="filter-section mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <label class="form-label field-label d-block mb-1">Date</label>
+              <input
+                type="date"
+                class="form-control form-control-sm"
+                [value]="today"
+              />
+            </div>
 
-    <div class="filter-row two-columns">
-      <label class="filter-field">
-        <span class="field-label">Class</span>
-        <select class="field-input">
-          <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
-        </select>
-      </label>
+            <div class="col-12 col-md-4">
+              <label class="form-label field-label d-block mb-1">Class</label>
+              <select class="form-select form-select-sm">
+                <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+              </select>
+            </div>
 
-      <label class="filter-field">
-        <span class="field-label">Section</span>
-        <select class="field-input">
-          <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
-        </select>
-      </label>
-    </div>
-  </section>
+            <div class="col-12 col-md-4">
+              <label class="form-label field-label d-block mb-1">Section</label>
+              <select class="form-select form-select-sm">
+                <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="students-section">
-    <div class="students-header">
-      <span class="col-roll">Roll No</span>
-      <span class="col-name">Student Name</span>
-      <span class="col-attendance">Present</span>
-    </div>
+    <section class="students-section mb-3">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm mb-0 align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col" style="width: 15%;">Roll No</th>
+                  <th scope="col" style="width: 55%;">Student Name</th>
+                  <th scope="col" class="text-center" style="width: 30%;">Present</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let student of students">
+                  <td>{{ student.rollNo }}</td>
+                  <td>{{ student.name }}</td>
+                  <td class="text-center">
+                    <button
+                      type="button"
+                      class="attendance-toggle btn btn-sm"
+                      [ngClass]="{ 'absent': !student.present }"
+                      (click)="toggleAttendance(student)"
+                    >
+                      {{ student.present ? 'Present' : 'Absent' }}
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div
-      class="student-row"
-      *ngFor="let student of students"
-    >
-      <span class="col-roll">{{ student.rollNo }}</span>
-      <span class="col-name">{{ student.name }}</span>
+    <footer class="actions">
       <button
         type="button"
-        class="attendance-toggle"
-        [class.absent]="!student.present"
-        (click)="toggleAttendance(student)"
+        class="btn btn-primary w-100"
+        (click)="onSave()"
       >
-        {{ student.present ? 'Present' : 'Absent' }}
+        Save Attendance
       </button>
-    </div>
-  </section>
-
-  <footer class="actions">
-    <button
-      type="button"
-      class="btn-save"
-      (click)="onSave()"
-    >
-      Save Attendance
-    </button>
-  </footer>
+    </footer>
+  </div>
 </div>
 
 
