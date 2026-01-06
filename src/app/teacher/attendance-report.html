@@ -1,58 +1,69 @@
 <div class="attendance-report-page">
-  <header class="page-header">
-    <h1 class="page-title">Attendance Report</h1>
-  </header>
+  <div class="container py-3">
+    <header class="page-header mb-3">
+      <h1 class="page-title h4 mb-0">Attendance Report</h1>
+    </header>
 
-  <section class="filters">
-    <div class="filter-row">
-      <label class="filter-field">
-        <span class="field-label">Class</span>
-        <select class="field-input">
-          <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
-        </select>
-      </label>
+    <section class="filters mb-3">
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <label class="form-label field-label d-block mb-1">Class</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+          </select>
+        </div>
 
-      <label class="filter-field">
-        <span class="field-label">Section</span>
-        <select class="field-input">
-          <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
-        </select>
-      </label>
-    </div>
+        <div class="col-12 col-md-4">
+          <label class="form-label field-label d-block mb-1">Section</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+          </select>
+        </div>
 
-    <div class="filter-row">
-      <label class="filter-field">
-        <span class="field-label">Month</span>
-        <select class="field-input">
-          <option *ngFor="let m of months" [value]="m">{{ m }}</option>
-        </select>
-      </label>
-    </div>
-  </section>
+        <div class="col-12 col-md-4">
+          <label class="form-label field-label d-block mb-1">Month</label>
+          <select class="form-select form-select-sm">
+            <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+          </select>
+        </div>
+      </div>
+    </section>
 
-  <section class="report-table">
-    <div class="table-header">
-      <span class="col-name">Student Name</span>
-      <span class="col-small">Total</span>
-      <span class="col-small">Present</span>
-      <span class="col-small">Absent</span>
-      <span class="col-small">%</span>
-    </div>
+    <section class="report-table mb-3">
+      <div class="table-responsive">
+        <table class="table table-sm table-striped table-bordered mb-0 align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col" class="text-center">Total</th>
+              <th scope="col" class="text-center">Present</th>
+              <th scope="col" class="text-center">Absent</th>
+              <th scope="col" class="text-center">%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows">
+              <td>{{ row.studentName }}</td>
+              <td class="text-center">{{ row.totalDays }}</td>
+              <td class="text-center">{{ row.presentDays }}</td>
+              <td class="text-center">{{ row.absentDays }}</td>
+              <td class="text-center">{{ row.percentage }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <div class="table-row" *ngFor="let row of rows">
-      <span class="col-name">{{ row.studentName }}</span>
-      <span class="col-small">{{ row.totalDays }}</span>
-      <span class="col-small">{{ row.presentDays }}</span>
-      <span class="col-small">{{ row.absentDays }}</span>
-      <span class="col-small">{{ row.percentage }}</span>
-    </div>
-  </section>
-
-  <footer class="actions">
-    <button type="button" class="btn-download" (click)="onDownload()">
-      Download Report (PDF)
-    </button>
-  </footer>
+    <footer class="actions">
+      <button
+        type="button"
+        class="btn btn-primary w-100"
+        (click)="onDownload()"
+      >
+        Download Report (PDF)
+      </button>
+    </footer>
+  </div>
 </div>
 
 

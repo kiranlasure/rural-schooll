@@ -12,6 +12,7 @@ export const routes: Routes = [
   { path: 'admin', loadComponent: () => import('./admin/admin').then(m => m.Admin) },
   { path: 'teacher', loadComponent: () => import('./teacher/teacher').then(m => m.Teacher) },
   { path: 'teacher/attendance', loadComponent: () => import('./teacher/mark-attendance').then(m => m.MarkAttendance) },
+  { path: 'teacher/attendance-report', loadComponent: () => import('./teacher/attendance-report').then(m => m.AttendanceReport) },
   { path: 'student', loadComponent: () => import('./student/student').then(m => m.Student) },
 
   // Wildcard: redirect any unknown route back to login

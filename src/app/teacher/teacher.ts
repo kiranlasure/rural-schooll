@@ -13,5 +13,9 @@ export class Teacher {
   navigateToMarkAttendance(): void {
     this.router.navigate(['/teacher/attendance']);
   }
+
+  navigateToAttendanceReport(): void {
+    this.router.navigate(['/teacher/attendance-report']);
+  }
 }
 
